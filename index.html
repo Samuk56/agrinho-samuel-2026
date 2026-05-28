@@ -1,0 +1,281 @@
+Aqui está a base estrutural em **HTML5 puro**. O código foi desenvolvido focando exclusivamente na **semântica perfeita, acessibilidade e organização lógica** de todo o conteúdo solicitado, sem nenhum estilo visual (CSS), para que você tenha total liberdade de estilizar depois.
+
+Para a calculadora e o quiz, estruturei os formulários e incluí um script básico em JavaScript no final para que as interatividades funcionem perfeitamente.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusão Nuclear e o Futuro Sustentável - Portal Educativo</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>Fusão Sustentável Logotipo</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Página Inicial</a></li>
+                <li><a href="#energia-economia">Energia e Economia</a></li>
+                <li><a href="#tecnologia">Tecnologia</a></li>
+                <li><a href="#desafios">Desafios</a></li>
+                <li><a href="#futuro">Futuro</a></li>
+                <li><a href="#interatividade">Interatividade</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="inicio">
+            <div class="banner-conteudo">
+                <h1>Fusão Nuclear: A Energia do Futuro para as Próximas Gerações</h1>
+                <p>Descubra como a energia das estrelas pode impulsionar o crescimento econômico global sem comprometer os recursos naturais do nosso planeta.</p>
+                <div class="media-placeholder">
+                    <img src="placeholder-plasma.jpg" alt="Animação gráfica mostrando o confinamento de plasma em um reator de fusão nuclear">
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="energia-economia">
+            <h2>Energia e Economia: O Cenário Global</h2>
+            
+            <article>
+                <h3>Demanda Crescente por Energia Sustentável</h3>
+                <p>O crescimento da demanda energética global exige uma transição rápida para fontes limpas. A dependência contínua de combustíveis fósseis gera severos impactos econômicos e climáticos, tornando a busca por alternativas de base uma prioridade geopolítica.</p>
+            </article>
+
+            <article>
+                <h3>Fusão vs. Fissão e Renováveis</h3>
+                <p>Diferente da fissão nuclear (que divide átomos pesados e gera resíduos de longa data), a fusão une núcleos leves, oferecendo uma segurança intrínseca e uma pegada de carbono drasticamente reduzida.</p>
+                
+                <h4>Comparação de Custos, Emissões e Eficiência</h4>
+                <table border="1">
+                    <caption>Comparativo de Fontes Energéticas</caption>
+                    <thead>
+                        <tr>
+                            <th>Fonte de Energia</th>
+                            <th>Emissões de CO₂</th>
+                            <th>Eficiência Energética</th>
+                            <th>Densidade de Combustível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Combustíveis Fósseis</td>
+                            <td>Muito Alta</td>
+                            <td>Baixa</td>
+                            <td>Baixa</td>
+                        </tr>
+                        <tr>
+                            <td>Renováveis (Solar/Eólica)</td>
+                            <td>Nula (Operacional)</td>
+                            <td>Intermitente</td>
+                            <td>Média</td>
+                        </tr>
+                        <tr>
+                            <td>Fissão Nuclear</td>
+                            <td>Nula</td>
+                            <td>Alta</td>
+                            <td>Alta</td>
+                        </tr>
+                        <tr>
+                            <td>Fusão Nuclear</td>
+                            <td>Nula</td>
+                            <td>Extremamente Alta</td>
+                            <td>Altíssima (1g fusão = 8t de petróleo)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="tecnologia">
+            <h2>A Tecnologia por Trás da Fusão Nuclear</h2>
+            <p>A fusão nuclear consiste em replicar o processo que ocorre no coração do Sol, fundindo isótopos de hidrogênio (Deutério e Trítio) para liberar grandes quantidades de energia.</p>
+
+            <h3>Tipos de Reatores e Confinamento</h3>
+            <ul>
+                <li><strong>Tokamak:</strong> Dispositivo magnético em formato de rosca (toroide) que confina o plasma sob altas pressões e temperaturas.</li>
+                <li><strong>Stellarator:</strong> Reator que utiliza uma geometria complexa de bobinas magnéticas externas para manter o plasma estável sem a necessidade de correntes internas.</li>
+                <li><strong>Laser de Fusão (Confinamento Inercial):</strong> Uso de lasers de alta potência para comprimir pequenas pastilhas de combustível instantaneamente.</li>
+            </ul>
+
+            <h3>Inovações, Pesquisas e Galeria</h3>
+            <p>Grandes consórcios como o ITER, laboratórios como o NIF e diversas startups privadas avançam em direção ao ganho líquido de energia.</p>
+            
+            <div class="galeria-reatores">
+                <figure>
+                    <img src="tokamak.jpg" alt="Interior do reator Tokamak mostrando o design toroidal">
+                    <figcaption>Esquema interno de um reator do tipo Tokamak.</figcaption>
+                </figure>
+                <figure>
+                    <img src="stellarator.jpg" alt="Estrutura de bobinas tridimensionais do Stellarator">
+                    <figcaption>Design complexo de bobinas em um reator Stellarator.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="desafios">
+            <h2>Desafios e Barreiras Tecnológicas</h2>
+            <p>Embora promissora, a fusão comercial enfrenta obstáculos físicos e de engenharia antes de ser integrada às redes elétricas.</p>
+
+            <dl>
+                <dt>Resíduos Radioativos</dt>
+                <dd>Produz volumes de rejeitos muito menores e de vida curta (baixo nível) em comparação com os reatores de fissão tradicionais.</dd>
+                
+                <dt>Consumo de Água e Materiais</dt>
+                <dd>Exige o desenvolvimento de materiais avançados capazes de suportar o bombardeio de nêutrons de alta energia e temperaturas extremas.</dd>
+                
+                <dt>Segurança e Riscos</dt>
+                <dd>Não há risco de derretimento nuclear ou acidentes em cadeia; qualquer falha no sistema resulta no resfriamento imediato do plasma.</dd>
+            </dl>
+        </section>
+
+        <hr>
+
+        <section id="futuro">
+            <h2>O Futuro com a Energia de Fusão</h2>
+            <p>A fusão nuclear representa a virada de chave para a mitigação definitiva das mudanças climáticas globais.</p>
+            <ul>
+                <li>Fornecimento de energia limpa, segura e praticamente ilimitada.</li>
+                <li>Perfeita integração com redes elétricas e indústrias pesadas de descarbonização difícil.</li>
+                <li>Preservação total dos recursos ambientais para as gerações futuras.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="interatividade">
+            <h2>Espaço Interativo</h2>
+
+            <div class="calculadora-container">
+                <h3>Calculadora de Impacto Energético</h3>
+                <p>Veja quanta matéria-prima a fusão economizaria com base no seu consumo mensal de energia elétrica.</p>
+                <form id="calc-form">
+                    <label for="consumo">Seu consumo mensal de energia (em kWh):</label>
+                    <input type="number" id="consumo" name="consumo" min="1" required placeholder="Ex: 250">
+                    <button type="button" onclick="calcularImpacto()">Calcular Economia</button>
+                </form>
+                <div id="calc-resultado" style="margin-top: 15px;">
+                    </div>
+            </div>
+
+            <br><hr style="border-top: 1px dashed #ccc;"><br>
+
+            <div class="quiz-container">
+                <h3>Quiz da Sustentabilidade</h3>
+                <form id="quiz-form">
+                    <fieldset>
+                        <legend>Qual é o principal combustível utilizado no processo de fusão nuclear?</legend>
+                        <label>
+                            <input type="radio" name="pergunta1" value="errado"> Urânio e Plutônio
+                        </label><br>
+                        <label>
+                            <input type="radio" name="pergunta1" value="correto"> Deutério e Trítio (Isótopos de Hidrogênio)
+                        </label><br>
+                        <label>
+                            <input type="radio" name="pergunta1" value="errado"> Carvão e Gás Natural
+                        </label>
+                    </fieldset>
+                    <br>
+                    <button type="button" onclick="verificarQuiz()">Enviar Resposta</button>
+                </form>
+                <div id="quiz-resultado" style="margin-top: 15px;">
+                    </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contato">
+            <h2>Contato e Engajamento</h2>
+            <p>Deixe suas dúvidas, comentários ou feedbacks sobre o portal educativo. Juntos construímos a conscientização sobre o amanhã.</p>
+            
+            <form action="#" method="POST">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <br>
+                <div>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                <br>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Educativo Fusão Sustentável. Todos os direitos reservados.</p>
+        <p>Desenvolvido para fins de educação ambiental e disseminação científica.</p>
+        <div class="links-rodape">
+            <a href="#inicio">Voltar ao topo</a> | 
+            <a href="#">Créditos e Fontes Científicas</a> | 
+            <a href="#">Redes Sociais</a>
+        </div>
+    </footer>
+
+    <script>
+        function calcularImpacto() {
+            const consumo = document.getElementById('consumo').value;
+            const resultadoDiv = document.getElementById('calc-resultado');
+            
+            if (consumo > 0) {
+                // Cálculo puramente ilustrativo para fins educativos
+                const combustivelFusaomg = (consumo * 0.012).toFixed(2);
+                const carvaoEconomizadokg = (consumo * 0.35).toFixed(1);
+                
+                resultadoDiv.innerHTML = `
+                    <p><strong>Resultado Estimado:</strong></p>
+                    <p>Para gerar seus ${consumo} kWh, seriam necessários apenas <strong>${combustivelFusaomg} miligramas</strong> de combustível de fusão!</p>
+                    <p>Isso evitaria a queima de aproximadamente <strong>${carvaoEconomizadokg} kg</strong> de carvão mineral.</p>
+                `;
+            } else {
+                resultadoDiv.innerHTML = '<p style="color: red;">Por favor, insira um valor válido maior que zero.</p>';
+            }
+        }
+
+        function verificarQuiz() {
+            const alternativas = document.getElementsByName('pergunta1');
+            const resultadoDiv = document.getElementById('quiz-resultado');
+            let respostaSelecionada = "";
+
+            for (const alternativa of alternativas) {
+                if (alternativa.checked) {
+                    respostaSelecionada = alternativa.value;
+                    break;
+                }
+            }
+
+            if (respostaSelecionada === "correto") {
+                resultadoDiv.innerHTML = '<p style="color: green;"><strong>Correto!</strong> O Deutério (extraído da água) e o Trítio são as opções ideais por fundirem a temperaturas ligeiramente menores e liberarem muita energia.</p>';
+            } else if (respostaSelecionada === "errado") {
+                resultadoDiv.innerHTML = '<p style="color: red;"><strong>Incorreto.</strong> O Urânio/Plutônio são da fissão, e fósseis geram CO₂. A resposta certa são os Isótopos de Hidrogênio.</p>';
+            } else {
+                resultadoDiv.innerHTML = '<p style="color: orange;">Por favor, selecione uma opção antes de enviar.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
