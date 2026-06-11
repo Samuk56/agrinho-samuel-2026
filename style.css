@@ -130,6 +130,7 @@ header {
 .logo span span {
     background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -194,6 +195,7 @@ h2 {
     gap: 12px;
     background: linear-gradient(135deg, #ffffff, var(--text-muted));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -225,6 +227,7 @@ h2 i {
     font-weight: 700;
     background: linear-gradient(135deg, #fff, #a5b4fc, #00f2fe);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -332,7 +335,7 @@ td { border-bottom: 1px solid rgba(255, 255, 255, 0.03); color: var(--text-muted
 }
 .badge-danger { background: rgba(239, 68, 68, 0.15); color: var(--error); border: 1px solid rgba(239, 68, 68, 0.3); }
 .badge-success { background: rgba(16, 185, 129, 0.15); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
-.badge-purple { background: rgba(157, 78, 221, 0.2); color: #d4a373; color: #c084fc; border: 1px solid rgba(157, 78, 221, 0.4); }
+.badge-purple { background: rgba(157, 78, 221, 0.2); color: #c084fc; border: 1px solid rgba(157, 78, 221, 0.4); }
 
 .text-neon { color: var(--neon-cyan); }
 
@@ -406,7 +409,14 @@ td { border-bottom: 1px solid rgba(255, 255, 255, 0.03); color: var(--text-muted
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
-.metric-card i { font-size: 2.2rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+.metric-card i { 
+    font-size: 2.2rem; 
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    margin-bottom: 1rem; 
+}
 .metric-card p { font-size: 0.95rem; color: var(--text-main); }
 
 /* ==========================================================================
