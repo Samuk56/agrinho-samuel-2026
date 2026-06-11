@@ -1,465 +1,325 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fusão Nuclear e o Futuro Sustentável</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <title>Fusão Nuclear e o Futuro Sustentável - Portal Educativo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="background-blur"></div>
-
-    <button class="menu-mobile" onclick="toggleMenu()">
-        ☰
-    </button>
+    <div class="liquid-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
     <header>
-
         <div class="logo">
-            ⚛️ Fusão Sustentável
+            <i class="fa-solid fa-atom atom-spin"></i>
+            <span>Fusão<span>Sustentável</span></span>
         </div>
-
-        <nav id="menu">
+        <nav>
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#energia-economia">Energia</a></li>
-                <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><a href="#desafios">Desafios</a></li>
-                <li><a href="#futuro">Futuro</a></li>
-                <li><a href="#interatividade">Interatividade</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#inicio"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li><a href="#energia-economia"><i class="fa-solid fa-chart-line"></i> Economia</a></li>
+                <li><a href="#tecnologia"><i class="fa-solid fa-microchip"></i> Tecnologia</a></li>
+                <li><a href="#desafios"><i class="fa-solid fa-triangle-exclamation"></i> Desafios</a></li>
+                <li><a href="#futuro"><i class="fa-solid fa-seedling"></i> Futuro</a></li>
+                <li><a href="#interatividade"><i class="fa-solid fa-gamepad"></i> Interativo</a></li>
+                <li><a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a></li>
             </ul>
         </nav>
-
     </header>
 
-    <main>
+    <main class="container">
 
-        <section id="inicio">
-
-            <div class="banner-conteudo">
-
-                <h1>
-                    Fusão Nuclear:
-                    A Energia do Futuro para as Próximas Gerações
-                </h1>
-
-                <p>
-                    Descubra como a energia das estrelas pode impulsionar
-                    o crescimento econômico global sem comprometer os
-                    recursos naturais do planeta.
-                </p>
-
-                <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1200"
-                    alt="Representação de energia e plasma">
-
+        <section id="inicio" class="glass-card hero-section">
+            <div class="hero-text">
+                <h1>Fusão Nuclear: A Energia do Futuro para as Próximas Gerações</h1>
+                <p>Descubra como a energia das estrelas pode impulsionar o crescimento econômico global sem comprometer os recursos naturais do nosso planeta.</p>
+                <a href="#interatividade" class="btn-primary">Testar Calculadora <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-
+            <div class="media-container">
+                <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80" alt="Representação conceitual de plasma e energia">
+                <div class="pulse-glow"></div>
+            </div>
         </section>
 
-        <section id="energia-economia">
+        <section id="energia-economia" class="glass-card">
+            <h2><i class="fa-solid fa-chart-pie"></i> Energia e Economia: O Cenário Global</h2>
+            
+            <div class="grid-2col">
+                <article class="inner-card">
+                    <h3>Demanda Crescente por Energia Sustentável</h3>
+                    <p>O crescimento da demanda energética global exige uma transição rápida para fontes limpas. A dependência contínua de combustíveis fósseis gera severos impactos econômicos e climáticos, tornando a busca por alternativas de base uma prioridade geopolítica.</p>
+                </article>
 
-            <h2>Energia e Economia</h2>
+                <article class="inner-card">
+                    <h3>Fusão vs. Fissão e Renováveis</h3>
+                    <p>Diferente da fissão nuclear (que divide átomos pesados e gera resíduos de longa data), a fusão une núcleos leves, oferecendo uma segurança intrínseca e uma pegada de carbono drasticamente reduzida.</p>
+                </article>
+            </div>
 
-            <article>
-
-                <h3>Demanda Crescente por Energia Sustentável</h3>
-
-                <p>
-                    O crescimento da demanda energética global exige
-                    uma transição rápida para fontes limpas.
-                    A fusão nuclear surge como uma das alternativas
-                    mais promissoras para suprir essa necessidade.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>Fusão vs. Fissão e Renováveis</h3>
-
-                <p>
-                    Diferente da fissão nuclear, a fusão une núcleos
-                    leves e produz enormes quantidades de energia
-                    com baixíssimo impacto ambiental.
-                </p>
-
+            <h3 class="table-title">Comparação de Custos, Emissões e Eficiência</h3>
+            <div class="table-responsive">
                 <table>
-
-                    <caption>
-                        Comparativo de Fontes Energéticas
-                    </caption>
-
                     <thead>
-
                         <tr>
-                            <th>Fonte</th>
-                            <th>CO₂</th>
-                            <th>Eficiência</th>
-                            <th>Densidade</th>
+                            <th>Fonte de Energia</th>
+                            <th>Emissões de CO₂</th>
+                            <th>Eficiência Energética</th>
+                            <th>Densidade de Combustível</th>
                         </tr>
-
                     </thead>
-
                     <tbody>
-
                         <tr>
-                            <td>Combustíveis Fósseis</td>
-                            <td>Muito Alta</td>
+                            <td><strong>Combustíveis Fósseis</strong></td>
+                            <td><span class="badge badge-danger">Muito Alta</span></td>
                             <td>Baixa</td>
                             <td>Baixa</td>
                         </tr>
-
                         <tr>
-                            <td>Solar / Eólica</td>
-                            <td>Nula</td>
+                            <td><strong>Renováveis (Solar/Eólica)</strong></td>
+                            <td><span class="badge badge-success">Nula</span></td>
                             <td>Intermitente</td>
                             <td>Média</td>
                         </tr>
-
                         <tr>
-                            <td>Fissão Nuclear</td>
-                            <td>Nula</td>
+                            <td><strong>Fissão Nuclear</strong></td>
+                            <td><span class="badge badge-success">Nula</span></td>
                             <td>Alta</td>
                             <td>Alta</td>
                         </tr>
-
-                        <tr>
-                            <td>Fusão Nuclear</td>
-                            <td>Nula</td>
+                        <tr class="highlight-row">
+                            <td><strong>Fusão Nuclear</strong></td>
+                            <td><span class="badge badge-purple">Nula</span></td>
                             <td>Extremamente Alta</td>
-                            <td>Altíssima</td>
+                            <td><i class="fa-solid fa-bolt text-neon"></i> Altíssima (1g = 8t de petróleo)</td>
                         </tr>
-
                     </tbody>
-
                 </table>
-
-            </article>
-
+            </div>
         </section>
 
-        <section id="tecnologia">
+        <section id="tecnologia" class="glass-card">
+            <h2><i class="fa-solid fa-gears"></i> A Tecnologia por Trás da Fusão Nuclear</h2>
+            <p class="section-lead">A fusão nuclear consiste em replicar o processo que ocorre no coração do Sol, fundindo isótopos de hidrogênio (Deutério e Trítio) para liberar grandes quantidades de energia.</p>
 
-            <h2>A Tecnologia da Fusão</h2>
+            <h3>Tipos de Reatores e Confinamento</h3>
+            <div class="grid-3col">
+                <div class="inner-card tech-item">
+                    <div class="tech-icon"><i class="fa-solid fa-circle-dot"></i></div>
+                    <h4>Tokamak</h4>
+                    <p>Dispositivo magnético em formato de rosca (toroide) que confina o plasma sob altas pressões e temperaturas.</p>
+                </div>
+                <div class="inner-card tech-item">
+                    <div class="tech-icon"><i class="fa-solid fa-helix"></i></div>
+                    <h4>Stellarator</h4>
+                    <p>Utiliza uma geometria complexa de bobinas magnéticas externas para manter o plasma estável sem correntes internas.</p>
+                </div>
+                <div class="inner-card tech-item">
+                    <div class="tech-icon"><i class="fa-solid fa-laser-blast"></i></div>
+                    <h4>Laser de Fusão</h4>
+                    <p>Uso de lasers de altíssima potência para comprimir pequenas pastilhas de combustível instantaneamente.</p>
+                </div>
+            </div>
 
-            <p>
-                A fusão nuclear replica o processo que ocorre
-                dentro das estrelas.
-            </p>
-
-            <h3>Principais Tecnologias</h3>
-
-            <ul>
-                <li><strong>Tokamak:</strong> confinamento magnético toroidal.</li>
-                <li><strong>Stellarator:</strong> bobinas tridimensionais complexas.</li>
-                <li><strong>Laser:</strong> confinamento inercial por pulsos.</li>
-            </ul>
-
+            <h3 class="gallery-title">Inovações, Pesquisas e Galeria</h3>
+            <p>Grandes consórcios como o ITER, laboratórios como o NIF e diversas startups privadas avançam a passos largos em direção ao ganho líquido de energia.</p>
+            
             <div class="galeria-reatores">
-
-                <figure>
-
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1200"
-                        alt="Tokamak">
-
-                    <figcaption>
-                        Estrutura inspirada em um Tokamak.
-                    </figcaption>
-
+                <figure class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Interior do reator Tokamak">
+                    <figcaption>Esquema interno e simulação de confinamento em reator Tokamak.</figcaption>
                 </figure>
-
-                <figure>
-
-                    <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?q=80&w=1200"
-                        alt="Laboratório">
-
-                    <figcaption>
-                        Laboratório de pesquisa em fusão.
-                    </figcaption>
-
+                <figure class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=600&q=80" alt="Estrutura de engenharia avançada">
+                    <figcaption>Complexidade geométrica magnética de engenharia avançada.</figcaption>
                 </figure>
-
             </div>
-
         </section>
 
-        <section id="desafios">
+        <section id="desafios" class="glass-card">
+            <h2><i class="fa-solid fa-shield-halved"></i> Desafios e Barreiras Tecnológicas</h2>
+            <p class="section-lead">Embora promissora, a fusão comercial enfrenta obstáculos físicos e de engenharia antes de ser integrada às redes elétricas globais.</p>
 
-            <h2>Desafios Tecnológicos</h2>
-
-            <dl>
-
-                <dt>Materiais Avançados</dt>
-
-                <dd>
-                    Precisam resistir a temperaturas extremas
-                    e bombardeio de partículas.
-                </dd>
-
-                <dt>Custos de Desenvolvimento</dt>
-
-                <dd>
-                    Os investimentos ainda são elevados.
-                </dd>
-
-                <dt>Controle do Plasma</dt>
-
-                <dd>
-                    Manter estabilidade é um dos maiores desafios.
-                </dd>
-
+            <dl class="accordion-list">
+                <div class="inner-card item-dl">
+                    <dt><i class="fa-solid fa-biohazard"></i> Resíduos Radioativos</dt>
+                    <dd>Produz volumes de rejeitos muito menores e de vida curta (baixo nível) em comparação com os reatores de fissão tradicionais.</dd>
+                </div>
+                <div class="inner-card item-dl">
+                    <dt><i class="fa-solid fa-faucet-droplet"></i> Consumo de Água e Materiais</dt>
+                    <dd>Exige o desenvolvimento de materiais avançados capazes de suportar o bombardeio de nêutrons de alta energia e temperaturas extremas.</dd>
+                </div>
+                <div class="inner-card item-dl">
+                    <dt><i class="fa-solid fa-heart-pulse"></i> Segurança e Riscos</dt>
+                    <dd>Não há risco de derretimento nuclear ou acidentes em cadeia; qualquer instabilidade no sistema resulta no resfriamento imediato do plasma.</dd>
+                </div>
             </dl>
-
         </section>
 
-        <section id="futuro">
-
-            <h2>O Futuro com a Fusão</h2>
-
-            <ul>
-
-                <li>Energia praticamente ilimitada.</li>
-
-                <li>Baixíssima emissão de carbono.</li>
-
-                <li>Maior independência energética global.</li>
-
-                <li>Menor impacto ambiental.</li>
-
-            </ul>
-
-        </section>
-
-        <section id="interatividade">
-
-            <h2>Espaço Interativo</h2>
-
-            <div class="calculadora-container">
-
-                <h3>Calculadora de Impacto Energético</h3>
-
-                <p>
-                    Informe seu consumo mensal.
-                </p>
-
-                <form id="calc-form">
-
-                    <input type="number"
-                        id="consumo"
-                        placeholder="Ex: 250"
-                        min="1"
-                        required>
-
-                    <button type="button"
-                        onclick="calcularImpacto()">
-                        Calcular
-                    </button>
-
-                </form>
-
-                <div id="calc-resultado"></div>
-
+        <section id="futuro" class="glass-card feature-highlight">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i> O Futuro com a Energia de Fusão</h2>
+            <p>A fusão nuclear representa a virada de chave definitiva para conter a crise climática global.</p>
+            <div class="grid-3col metric-cards">
+                <div class="metric-card">
+                    <i class="fa-solid fa-infinity"></i>
+                    <p>Fornecimento de energia limpa, segura e praticamente ilimitada.</p>
+                </div>
+                <div class="metric-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <p>Perfeita integração com redes elétricas e indústrias pesadas.</p>
+                </div>
+                <div class="metric-card">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <p>Preservação total dos ecossistemas para as gerações futuras.</p>
+                </div>
             </div>
-
-            <div class="quiz-container">
-
-                <h3>Quiz da Sustentabilidade</h3>
-
-                <form id="quiz-form">
-
-                    <fieldset>
-
-                        <legend>
-                            Qual é o principal combustível da fusão nuclear?
-                        </legend>
-
-                        <label>
-                            <input type="radio"
-                                name="pergunta1"
-                                value="errado">
-                            Urânio e Plutônio
-                        </label>
-
-                        <br><br>
-
-                        <label>
-                            <input type="radio"
-                                name="pergunta1"
-                                value="correto">
-                            Deutério e Trítio
-                        </label>
-
-                        <br><br>
-
-                        <label>
-                            <input type="radio"
-                                name="pergunta1"
-                                value="errado">
-                            Carvão e Gás Natural
-                        </label>
-
-                    </fieldset>
-
-                    <button type="button"
-                        onclick="verificarQuiz()">
-                        Enviar Resposta
-                    </button>
-
-                </form>
-
-                <div id="quiz-resultado"></div>
-
-            </div>
-
         </section>
 
-        <section id="contato">
+        <section id="interatividade" class="glass-card">
+            <h2><i class="fa-solid fa-circle-nodes"></i> Espaço Interativo</h2>
 
-            <h2>Contato</h2>
+            <div class="grid-2col">
+                <div class="inner-card tool-box">
+                    <h3><i class="fa-solid fa-calculator"></i> Calculadora de Impacto</h3>
+                    <p>Veja quanta matéria-prima a fusão economizaria com base no seu consumo mensal.</p>
+                    <form id="calc-form">
+                        <div class="input-group">
+                            <label for="consumo">Consumo mensal (kWh):</label>
+                            <input type="number" id="consumo" name="consumo" min="1" required placeholder="Ex: 250">
+                        </div>
+                        <button type="button" class="btn-primary btn-full" onclick="calcularImpacto()">Calcular Economia</button>
+                    </form>
+                    <div id="calc-resultado" class="result-box"></div>
+                </div>
 
-            <form>
+                <div class="inner-card tool-box">
+                    <h3><i class="fa-solid fa-lightbulb"></i> Quiz da Sustentabilidade</h3>
+                    <form id="quiz-form">
+                        <fieldset>
+                            <legend>Qual é o principal combustível utilizado no processo de fusão nuclear?</legend>
+                            <label class="radio-option">
+                                <input type="radio" name="pergunta1" value="errado">
+                                <span><i class="fa-regular fa-circle"></i> Urânio e Plutônio</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pergunta1" value="correto">
+                                <span><i class="fa-regular fa-circle"></i> Deutério e Trítio (Isótopos)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pergunta1" value="errado">
+                                <span><i class="fa-regular fa-circle"></i> Carvão e Gás Natural</span>
+                            </label>
+                        </fieldset>
+                        <button type="button" class="btn-secondary btn-full" onclick="verificarQuiz()">Enviar Resposta</button>
+                    </form>
+                    <div id="quiz-resultado" class="result-box"></div>
+                </div>
+            </div>
+        </section>
 
-                <input type="text"
-                    placeholder="Seu nome"
-                    required>
-
-                <input type="email"
-                    placeholder="Seu e-mail"
-                    required>
-
-                <textarea
-                    rows="6"
-                    placeholder="Sua mensagem"
-                    required></textarea>
-
-                <button type="submit">
-                    Enviar Mensagem
-                </button>
-
+        <section id="contato" class="glass-card">
+            <h2><i class="fa-solid fa-paper-plane"></i> Contato e Engajamento</h2>
+            <p class="section-lead">Deixe suas dúvidas, comentários ou feedbacks sobre o portal educativo. Juntos construímos o amanhã.</p>
+            
+            <form action="#" method="POST" class="contact-form">
+                <div class="grid-2col">
+                    <div class="input-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Escreva sua mensagem ou dúvida aqui..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Mensagem <i class="fa-solid fa-share"></i></button>
             </form>
-
         </section>
 
     </main>
 
     <footer>
-
-        <p>
-            © 2026 Portal Educativo Fusão Sustentável
-        </p>
-
-        <div class="links-rodape">
-
-            <a href="#inicio">
-                Voltar ao topo
-            </a>
-
+        <div class="footer-content">
+            <p>&copy; 2026 Portal Educativo Fusão Sustentável. Todos os direitos reservados.</p>
+            <p class="footer-sub">Desenvolvido para fins de educação ambiental e disseminação científica.</p>
+            <div class="links-rodape">
+                <a href="#inicio"><i class="fa-solid fa-arrow-up"></i> Voltar ao topo</a>
+                <a href="#"><i class="fa-solid fa-book"></i> Fontes Científicas</a>
+                <a href="#"><i class="fa-solid fa-share-nodes"></i> Redes Sociais</a>
+            </div>
         </div>
-
     </footer>
 
     <script>
-
-        function toggleMenu() {
-            document
-                .getElementById("menu")
-                .classList.toggle("active");
-        }
-
         function calcularImpacto() {
-
-            const consumo =
-                document.getElementById("consumo").value;
-
-            const resultado =
-                document.getElementById("calc-resultado");
-
+            const consumo = document.getElementById('consumo').value;
+            const resultadoDiv = document.getElementById('calc-resultado');
+            
             if (consumo > 0) {
-
-                const combustivel =
-                    (consumo * 0.012).toFixed(2);
-
-                const carvao =
-                    (consumo * 0.35).toFixed(1);
-
-                resultado.innerHTML = `
-                    <h4>Resultado</h4>
-
-                    <p>
-                        Apenas <strong>${combustivel} mg</strong>
-                        de combustível de fusão.
-                    </p>
-
-                    <p>
-                        Economia estimada de
-                        <strong>${carvao} kg</strong>
-                        de carvão mineral.
-                    </p>
+                const combustivelFusaomg = (consumo * 0.012).toFixed(2);
+                const carvaoEconomizadokg = (consumo * 0.35).toFixed(1);
+                
+                resultadoDiv.className = "result-box show success";
+                resultadoDiv.innerHTML = `
+                    <h4><i class="fa-solid fa-circle-check"></i> Resultado Estimado:</h4>
+                    <p>Para gerar seus <strong>${consumo} kWh</strong>, seriam necessários apenas <span class="highlight-text">${combustivelFusaomg} miligramas</span> de combustível de fusão!</p>
+                    <p>Isso pouparia o planeta da queima de aproximadamente <span class="highlight-text">${carvaoEconomizadokg} kg</span> de carvão mineral.</p>
                 `;
-
             } else {
-
-                resultado.innerHTML =
-                    "<p>Digite um valor válido.</p>";
-
+                resultadoDiv.className = "result-box show error";
+                resultadoDiv.innerHTML = '<p><i class="fa-solid fa-circle-exclamation"></i> Por favor, insira um valor válido maior que zero.</p>';
             }
-
         }
 
         function verificarQuiz() {
+            const alternativas = document.getElementsByName('pergunta1');
+            const resultadoDiv = document.getElementById('quiz-resultado');
+            let respostaSelecionada = "";
 
-            const alternativas =
-                document.getElementsByName("pergunta1");
-
-            const resultado =
-                document.getElementById("quiz-resultado");
-
-            let resposta = "";
-
-            for (let item of alternativas) {
-
-                if (item.checked) {
-
-                    resposta = item.value;
+            for (const alternativa of alternativas) {
+                if (alternativa.checked) {
+                    respostaSelecionada = alternativa.value;
                     break;
-
                 }
-
             }
 
-            if (resposta === "correto") {
-
-                resultado.innerHTML =
-                    "<p style='color:#00ff95'><strong>Correto!</strong> Deutério e Trítio são os principais combustíveis da fusão.</p>";
-
-            } else if (resposta === "errado") {
-
-                resultado.innerHTML =
-                    "<p style='color:#ff6b6b'><strong>Incorreto.</strong> A resposta correta é Deutério e Trítio.</p>";
-
+            if (respostaSelecionada === "correto") {
+                resultadoDiv.className = "result-box show success";
+                resultadoDiv.innerHTML = '<h4><i class="fa-solid fa-square-check"></i> Correto!</h4><p>O Deutério (da água) e o Trítio fundem a temperaturas viáveis em reatores de confinamento magnético, gerando energia limpa exponencial.</p>';
+            } else if (respostaSelecionada === "errado") {
+                resultadoDiv.className = "result-box show error";
+                resultadoDiv.innerHTML = '<h4><i class="fa-solid fa-rectangle-xmark"></i> Incorreto.</h4><p>Urânio pertence à fissão, e fósseis causam efeito estufa. A resposta correta são os <strong>Isótopos de Hidrogênio</strong>.</p>';
             } else {
-
-                resultado.innerHTML =
-                    "<p style='color:orange'>Selecione uma alternativa.</p>";
-
+                resultadoDiv.className = "result-box show warning";
+                resultadoDiv.innerHTML = '<p><i class="fa-solid fa-circle-info"></i> Por favor, selecione uma opção antes de enviar.</p>';
             }
-
         }
 
+        // Script estético simples para customizar comportamento visual dos radios inline
+        document.querySelectorAll('.radio-option input').forEach(input => {
+            input.addEventListener('change', function() {
+                this.closest('fieldset').querySelectorAll('.radio-option').forEach(label => {
+                    label.classList.remove('active');
+                    label.querySelector('i').className = 'fa-regular fa-circle';
+                });
+                if(this.checked) {
+                    this.closest('.radio-option').classList.add('active');
+                    this.closest('.radio-option').querySelector('i').className = 'fa-solid fa-circle-dot';
+                }
+            });
+        });
     </script>
-
 </body>
-
 </html>
