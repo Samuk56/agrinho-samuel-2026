@@ -52,13 +52,11 @@
 
         <section id="energia-economia" class="glass-card">
             <h2><i class="fa-solid fa-chart-pie"></i> Energia e Economia: O Cenário Global</h2>
-            
             <div class="grid-2col">
                 <article class="inner-card">
                     <h3>Demanda Crescente por Energia Sustentável</h3>
                     <p>O crescimento da demanda energética global exige uma transição rápida para fontes limpas. A dependência contínua de combustíveis fósseis gera severos impactos econômicos e climáticos, tornando a busca por alternativas de base uma prioridade geopolítica.</p>
                 </article>
-
                 <article class="inner-card">
                     <h3>Fusão vs. Fissão e Renováveis</h3>
                     <p>Diferente da fissão nuclear (que divide átomos pesados e gera resíduos de longa data), a fusão une núcleos leves, oferecendo uma segurança intrínseca e uma pegada de carbono drasticamente reduzida.</p>
@@ -118,12 +116,12 @@
                     <p>Dispositivo magnético em formato de rosca (toroide) que confina o plasma sob altas pressões e temperaturas.</p>
                 </div>
                 <div class="inner-card tech-item">
-                    <div class="tech-icon"><i class="fa-solid fa-helix"></i></div>
+                    <div class="tech-icon"><i class="fa-solid fa-atom"></i></div>
                     <h4>Stellarator</h4>
                     <p>Utiliza uma geometria complexa de bobinas magnéticas externas para manter o plasma estável sem correntes internas.</p>
                 </div>
                 <div class="inner-card tech-item">
-                    <div class="tech-icon"><i class="fa-solid fa-laser-blast"></i></div>
+                    <div class="tech-icon"><i class="fa-solid fa-bolt"></i></div>
                     <h4>Laser de Fusão</h4>
                     <p>Uso de lasers de altíssima potência para comprimir pequenas pastilhas de combustível instantaneamente.</p>
                 </div>
@@ -131,7 +129,7 @@
 
             <h3 class="gallery-title">Inovações, Pesquisas e Galeria</h3>
             <p>Grandes consórcios como o ITER, laboratórios como o NIF e diversas startups privadas avançam a passos largos em direção ao ganho líquido de energia.</p>
-            
+
             <div class="galeria-reatores">
                 <figure class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Interior do reator Tokamak">
@@ -190,19 +188,21 @@
                 <div class="inner-card tool-box">
                     <h3><i class="fa-solid fa-calculator"></i> Calculadora de Impacto</h3>
                     <p>Veja quanta matéria-prima a fusão economizaria com base no seu consumo mensal.</p>
-                    <form id="calc-form">
+                    <div id="calc-form">
                         <div class="input-group">
                             <label for="consumo">Consumo mensal (kWh):</label>
-                            <input type="number" id="consumo" name="consumo" min="1" required placeholder="Ex: 250">
+                            <input type="number" id="consumo" name="consumo" min="1" placeholder="Ex: 250">
                         </div>
-                        <button type="button" class="btn-primary btn-full" onclick="calcularImpacto()">Calcular Economia</button>
-                    </form>
+                        <button type="button" class="btn-primary btn-full" id="btn-calcular">
+                            Calcular Economia
+                        </button>
+                    </div>
                     <div id="calc-resultado" class="result-box"></div>
                 </div>
 
                 <div class="inner-card tool-box">
                     <h3><i class="fa-solid fa-lightbulb"></i> Quiz da Sustentabilidade</h3>
-                    <form id="quiz-form">
+                    <div id="quiz-form">
                         <fieldset>
                             <legend>Qual é o principal combustível utilizado no processo de fusão nuclear?</legend>
                             <label class="radio-option">
@@ -218,8 +218,10 @@
                                 <span><i class="fa-regular fa-circle"></i> Carvão e Gás Natural</span>
                             </label>
                         </fieldset>
-                        <button type="button" class="btn-secondary btn-full" onclick="verificarQuiz()">Enviar Resposta</button>
-                    </form>
+                        <button type="button" class="btn-secondary btn-full" id="btn-quiz">
+                            Enviar Resposta
+                        </button>
+                    </div>
                     <div id="quiz-resultado" class="result-box"></div>
                 </div>
             </div>
@@ -228,7 +230,7 @@
         <section id="contato" class="glass-card">
             <h2><i class="fa-solid fa-paper-plane"></i> Contato e Engajamento</h2>
             <p class="section-lead">Deixe suas dúvidas, comentários ou feedbacks sobre o portal educativo. Juntos construímos o amanhã.</p>
-            
+
             <form action="#" method="POST" class="contact-form">
                 <div class="grid-2col">
                     <div class="input-group">
@@ -262,64 +264,8 @@
         </div>
     </footer>
 
-    <script>
-        function calcularImpacto() {
-            const consumo = document.getElementById('consumo').value;
-            const resultadoDiv = document.getElementById('calc-resultado');
-            
-            if (consumo > 0) {
-                const combustivelFusaomg = (consumo * 0.012).toFixed(2);
-                const carvaoEconomizadokg = (consumo * 0.35).toFixed(1);
-                
-                resultadoDiv.className = "result-box show success";
-                resultadoDiv.innerHTML = `
-                    <h4><i class="fa-solid fa-circle-check"></i> Resultado Estimado:</h4>
-                    <p>Para gerar seus <strong>${consumo} kWh</strong>, seriam necessários apenas <span class="highlight-text">${combustivelFusaomg} miligramas</span> de combustível de fusão!</p>
-                    <p>Isso pouparia o planeta da queima de aproximadamente <span class="highlight-text">${carvaoEconomizadokg} kg</span> de carvão mineral.</p>
-                `;
-            } else {
-                resultadoDiv.className = "result-box show error";
-                resultadoDiv.innerHTML = '<p><i class="fa-solid fa-circle-exclamation"></i> Por favor, insira um valor válido maior que zero.</p>';
-            }
-        }
+    <!-- ✅ JS externo — ZERO JavaScript inline neste arquivo -->
+    <script src="script.js"></script>
 
-        function verificarQuiz() {
-            const alternativas = document.getElementsByName('pergunta1');
-            const resultadoDiv = document.getElementById('quiz-resultado');
-            let respostaSelecionada = "";
-
-            for (const alternativa of alternativas) {
-                if (alternativa.checked) {
-                    respostaSelecionada = alternativa.value;
-                    break;
-                }
-            }
-
-            if (respostaSelecionada === "correto") {
-                resultadoDiv.className = "result-box show success";
-                resultadoDiv.innerHTML = '<h4><i class="fa-solid fa-square-check"></i> Correto!</h4><p>O Deutério (da água) e o Trítio fundem a temperaturas viáveis em reatores de confinamento magnético, gerando energia limpa exponencial.</p>';
-            } else if (respostaSelecionada === "errado") {
-                resultadoDiv.className = "result-box show error";
-                resultadoDiv.innerHTML = '<h4><i class="fa-solid fa-rectangle-xmark"></i> Incorreto.</h4><p>Urânio pertence à fissão, e fósseis causam efeito estufa. A resposta correta são os <strong>Isótopos de Hidrogênio</strong>.</p>';
-            } else {
-                resultadoDiv.className = "result-box show warning";
-                resultadoDiv.innerHTML = '<p><i class="fa-solid fa-circle-info"></i> Por favor, selecione uma opção antes de enviar.</p>';
-            }
-        }
-
-        // Script estético simples para customizar comportamento visual dos radios inline
-        document.querySelectorAll('.radio-option input').forEach(input => {
-            input.addEventListener('change', function() {
-                this.closest('fieldset').querySelectorAll('.radio-option').forEach(label => {
-                    label.classList.remove('active');
-                    label.querySelector('i').className = 'fa-regular fa-circle';
-                });
-                if(this.checked) {
-                    this.closest('.radio-option').classList.add('active');
-                    this.closest('.radio-option').querySelector('i').className = 'fa-solid fa-circle-dot';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
