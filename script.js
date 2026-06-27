@@ -23,7 +23,7 @@ function calcularImpacto() {
   const combustivelFusaomg  = (consumo * 0.012).toFixed(2);
   const carvaoEconomizadokg = (consumo * 0.35).toFixed(1);
   const co2Evitadokg        = (consumo * 0.82).toFixed(1); // ~820g CO₂/kWh (carvão)
-  const arvoresEquiv        = Math.round(co2Evitadokg / 21);  // ~21kg CO₂/árvore/ano
+  const arvoresEquiv        = Math.max(1, Math.round(co2Evitadokg / 21));  // ~21kg CO₂/árvore/ano
 
   exibirResultado(resultadoDiv, "success", `
     <h4><i class="fa-solid fa-circle-check"></i> Resultado Estimado</h4>
@@ -81,29 +81,78 @@ function verificarQuiz() {
    3. VALIDAÇÃO DO FORMULÁRIO DE CONTATO
    -------------------------------------------------------------------------- */
 function inicializarFormularioContato() {
-  const form = document.querySelector(".contact-form");
+  const form = document.getElementById("contact-form");
   if (!form) return;
+
+  const campos = {
+    nome: { el: form.querySelector("#nome"), erro: form.querySelector("#erro-nome") },
+    email: { el: form.querySelector("#email"), erro: form.querySelector("#erro-email") },
+    mensagem: { el: form.querySelector("#mensagem"), erro: form.querySelector("#erro-mensagem") }
+  };
+
+  function limparErro(campo) {
+    campo.erro.textContent = "";
+    campo.el.style.borderColor = "";
+  }
+
+  function marcarErro(campo, mensagem) {
+    campo.erro.textContent = mensagem;
+    campo.el.style.borderColor = "var(--error)";
+  }
+
+  Object.values(campos).forEach(campo => {
+    campo.el.addEventListener("input", () => limparErro(campo));
+  });
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    let valido = true;
 
-    const nome     = form.querySelector("#nome").value.trim();
-    const email    = form.querySelector("#email").value.trim();
-    const mensagem = form.querySelector("#mensagem").value.trim();
+    const nome = campos.nome.el.value.trim();
+    const email = campos.email.el.value.trim();
+    const mensagem = campos.mensagem.el.value.trim();
 
-    if (!nome || !email || !mensagem) {
-      exibirToast("Preencha todos os campos antes de enviar.", "warning");
+    if (!nome) {
+      marcarErro(campos.nome, "Informe seu nome.");
+      valido = false;
+    } else {
+      limparErro(campos.nome);
+    }
+
+    if (!email) {
+      marcarErro(campos.email, "Informe seu e-mail.");
+      valido = false;
+    } else if (!validarEmail(email)) {
+      marcarErro(campos.email, "Informe um e-mail válido.");
+      valido = false;
+    } else {
+      limparErro(campos.email);
+    }
+
+    if (!mensagem) {
+      marcarErro(campos.mensagem, "Escreva sua mensagem.");
+      valido = false;
+    } else {
+      limparErro(campos.mensagem);
+    }
+
+    if (!valido) {
+      exibirToast("Verifique os campos destacados antes de enviar.", "warning");
       return;
     }
 
-    if (!validarEmail(email)) {
-      exibirToast("Insira um e-mail válido.", "error");
-      return;
-    }
+    // Simulação de envio bem-sucedido (não há backend neste portal)
+    const btn = document.getElementById("btn-enviar");
+    const textoOriginal = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
 
-    // Simulação de envio bem-sucedido
-    form.reset();
-    exibirToast("Mensagem enviada com sucesso! Obrigado pelo contato. 🚀", "success");
+    setTimeout(() => {
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = textoOriginal;
+      exibirToast("Mensagem enviada com sucesso! Obrigado pelo contato. 🚀", "success");
+    }, 900);
   });
 }
 
@@ -150,7 +199,6 @@ function exibirToast(mensagem, tipo = "success") {
   toast.innerHTML = `<i class="fa-solid ${cfg.icon}"></i> ${mensagem}`;
   document.body.appendChild(toast);
 
-  // Animação de entrada
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       toast.style.opacity   = "1";
@@ -158,7 +206,6 @@ function exibirToast(mensagem, tipo = "success") {
     });
   });
 
-  // Auto-remoção após 4 s
   setTimeout(() => {
     toast.style.opacity   = "0";
     toast.style.transform = "translateY(20px)";
@@ -217,29 +264,22 @@ function inicializarHeaderScroll() {
 
 /* --------------------------------------------------------------------------
    8. ANIMAÇÃO DE ENTRADA POR SCROLL (Intersection Observer)
-      — adiciona classe .visible às .glass-card conforme entram na viewport
+      — adiciona classe .visible às .reveal conforme entram na viewport
    -------------------------------------------------------------------------- */
 function inicializarScrollReveal() {
-  const cards = document.querySelectorAll(".glass-card, .inner-card, .metric-card");
-
-  // CSS inline de estado inicial (para não poluir o CSS externo com estado JS)
-  cards.forEach(card => {
-    card.style.opacity   = "0";
-    card.style.transform = "translateY(30px)";
-    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  });
+  const elementos = document.querySelectorAll(".reveal");
+  if (!elementos.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity   = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
 
-  cards.forEach(card => observer.observe(card));
+  elementos.forEach(el => observer.observe(el));
 }
 
 /* --------------------------------------------------------------------------
@@ -248,6 +288,7 @@ function inicializarScrollReveal() {
 function inicializarNavAtiva() {
   const sections = document.querySelectorAll("main section[id]");
   const navLinks  = document.querySelectorAll("nav a[href^='#']");
+  if (!sections.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -262,7 +303,6 @@ function inicializarNavAtiva() {
 
   sections.forEach(s => observer.observe(s));
 
-  // Injeta estilo para classe .nav-ativa
   const style = document.createElement("style");
   style.textContent = `
     nav a.nav-ativa {
@@ -274,10 +314,9 @@ function inicializarNavAtiva() {
 }
 
 /* --------------------------------------------------------------------------
-   10. CONTADOR ANIMADO para métricas da seção #futuro
+   10. CONTADOR ANIMADO para métricas (hero, sociedade, etc.)
    -------------------------------------------------------------------------- */
 function animarContadores() {
-  // Exemplo: se futuramente o HTML tiver elementos [data-count], eles animam.
   const elementos = document.querySelectorAll("[data-count]");
   if (!elementos.length) return;
 
@@ -286,9 +325,16 @@ function animarContadores() {
       if (!entry.isIntersecting) return;
       const el  = entry.target;
       const alvo = parseInt(el.dataset.count, 10);
+
+      if (alvo === 0) {
+        el.textContent = "0";
+        observer.unobserve(el);
+        return;
+      }
+
       let atual  = 0;
       const duracao = 1500;
-      const passo   = Math.ceil(alvo / (duracao / 16));
+      const passo   = Math.max(1, Math.ceil(alvo / (duracao / 16)));
 
       const tick = () => {
         atual = Math.min(atual + passo, alvo);
@@ -311,14 +357,161 @@ function respeitarReducedMotion() {
   const prefersReduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!prefersReduzido) return;
 
-  // Desativa animações dos blobs e do átomo
-  document.querySelectorAll(".blob, .atom-spin").forEach(el => {
+  document.querySelectorAll(".blob, .atom-spin, .particle").forEach(el => {
     el.style.animation = "none";
   });
 }
 
 /* --------------------------------------------------------------------------
-   12. INICIALIZAÇÃO GERAL (DOMContentLoaded)
+   12. BARRA DE PROGRESSO DE LEITURA
+   -------------------------------------------------------------------------- */
+function inicializarBarraProgresso() {
+  const barra = document.getElementById("scroll-progress");
+  if (!barra) return;
+
+  function atualizar() {
+    const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
+    const progresso = alturaTotal > 0 ? (window.scrollY / alturaTotal) * 100 : 0;
+    barra.style.width = `${progresso}%`;
+  }
+
+  window.addEventListener("scroll", atualizar, { passive: true });
+  window.addEventListener("resize", atualizar);
+  atualizar();
+}
+
+/* --------------------------------------------------------------------------
+   13. REATOR EM CORTE — abre conforme o usuário rola até a seção
+   -------------------------------------------------------------------------- */
+function inicializarReatorCorte() {
+  const media = document.getElementById("reactor-media");
+  if (!media) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Quando a hero sai parcialmente de vista (usuário rolou para baixo),
+      // o reator "abre" revelando o plasma interno.
+      media.classList.toggle("is-open", entry.intersectionRatio < 0.6);
+    });
+  }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
+
+  observer.observe(media);
+}
+
+/* --------------------------------------------------------------------------
+   14. MENU MOBILE (hambúrguer)
+   -------------------------------------------------------------------------- */
+function inicializarMenuMobile() {
+  const toggle = document.getElementById("nav-toggle");
+  const nav = document.getElementById("main-nav");
+  const overlay = document.getElementById("nav-overlay");
+  if (!toggle || !nav || !overlay) return;
+
+  function abrir() {
+    nav.classList.add("nav-open");
+    overlay.classList.add("show");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  }
+
+  function fechar() {
+    nav.classList.remove("nav-open");
+    overlay.classList.remove("show");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+
+  toggle.addEventListener("click", () => {
+    nav.classList.contains("nav-open") ? fechar() : abrir();
+  });
+
+  overlay.addEventListener("click", fechar);
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", fechar);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) fechar();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   15. BOTÃO VOLTAR AO TOPO FLUTUANTE
+   -------------------------------------------------------------------------- */
+function inicializarBackToTop() {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("show", window.scrollY > 500);
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   16. PARTÍCULAS DE PLASMA FLUTUANTES (geradas dinamicamente)
+   -------------------------------------------------------------------------- */
+function inicializarParticulas() {
+  const container = document.getElementById("particles");
+  if (!container) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const cores = ["#00f2fe", "#9d4edd", "#4facfe", "#ffb454"];
+  const total = window.innerWidth < 768 ? 14 : 26;
+
+  for (let i = 0; i < total; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    const cor = cores[Math.floor(Math.random() * cores.length)];
+    const left = Math.random() * 100;
+    const duracao = 10 + Math.random() * 14;
+    const atraso = Math.random() * 14;
+    const drift = (Math.random() - 0.5) * 120;
+    const tamanho = 2 + Math.random() * 3;
+
+    p.style.left = `${left}%`;
+    p.style.background = cor;
+    p.style.boxShadow = `0 0 8px ${cor}, 0 0 16px ${cor}`;
+    p.style.width = `${tamanho}px`;
+    p.style.height = `${tamanho}px`;
+    p.style.setProperty("--drift", `${drift}px`);
+    p.style.animationDuration = `${duracao}s`;
+    p.style.animationDelay = `${atraso}s`;
+
+    container.appendChild(p);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. SMOOTH SCROLL COM OFFSET DO HEADER (links internos)
+   -------------------------------------------------------------------------- */
+function inicializarSmoothScroll() {
+  const header = document.querySelector("header");
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener("click", (e) => {
+      const id = link.getAttribute("href");
+      if (id.length <= 1) return;
+      const destino = document.querySelector(id);
+      if (!destino) return;
+
+      e.preventDefault();
+      const offset = (header ? header.offsetHeight : 0) + 10;
+      const top = destino.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   18. INICIALIZAÇÃO GERAL (DOMContentLoaded)
    -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
   respeitarReducedMotion();
@@ -328,6 +521,12 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarRadiosCustom();
   inicializarFormularioContato();
   animarContadores();
+  inicializarBarraProgresso();
+  inicializarReatorCorte();
+  inicializarMenuMobile();
+  inicializarBackToTop();
+  inicializarParticulas();
+  inicializarSmoothScroll();
 
   console.info(
     "%c⚛ FusãoSustentável JS carregado com sucesso!",
@@ -336,8 +535,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* --------------------------------------------------------------------------
-   13. EXPOSIÇÃO GLOBAL das funções chamadas via onclick no HTML
-       (enquanto os atributos onclick permanecerem no HTML, isso é necessário)
+   19. EXPOSIÇÃO GLOBAL das funções chamadas via addEventListener no HTML
    -------------------------------------------------------------------------- */
-window.calcularImpacto = calcularImpacto;
-window.verificarQuiz   = verificarQuiz;
+document.addEventListener("DOMContentLoaded", () => {
+  const btnCalcular = document.getElementById("btn-calcular");
+  const btnQuiz = document.getElementById("btn-quiz");
+  if (btnCalcular) btnCalcular.addEventListener("click", calcularImpacto);
+  if (btnQuiz) btnQuiz.addEventListener("click", verificarQuiz);
+
+  const inputConsumo = document.getElementById("consumo");
+  if (inputConsumo) {
+    inputConsumo.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        calcularImpacto();
+      }
+    });
+  }
+});
